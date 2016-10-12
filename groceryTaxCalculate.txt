@@ -1,6 +1,0 @@
-Meow!
-Meow!2
-Item: 34.0
-Meow!2
-Item: 23.0
-Item: 23.0

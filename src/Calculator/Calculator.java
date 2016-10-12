@@ -1,6 +1,8 @@
 package Calculator;
 
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -24,10 +26,21 @@ public class Calculator {
                 numTwo = inputNum.nextDouble();
                 subtotal = (compute(numOne, op, numTwo));
                 System.out.println("\n\t Your answer is: " + subtotal);
-                System.out.println("Are you finished with this expression? yes/no");
+
+                //Prints to txt file
+                String fileName = "calculate.txt";
+                PrintWriter outFile = new PrintWriter(new FileWriter(fileName, true));
+                outFile.print(numOne);
+                outFile.print(" " + op + " ");
+                outFile.println(numTwo);
+                outFile.println("____________\n");
+                outFile.println("Total " + subtotal + "\n\n");
+                outFile.close();
+
+                System.out.println("Would you like to calculate something else? yes/no");
                 response = inputNum.next();
-            } while (response.equals("no"));
-        if (response.equals("yes")){
+            } while (response.equals("yes"));
+        if (response.equals("no")){
             new Menu();
         }
         }

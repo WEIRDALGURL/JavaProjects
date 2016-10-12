@@ -37,24 +37,42 @@ public class GroceryTaxCalculator extends Main {
             for (int i = 0; i < groceryList.size(); i++)
                 sum += Double.parseDouble(String.valueOf(groceryList.get(i)));
             {
-                System.out.println("Sum: " + sum);
+                System.out.println("Subtotal: " + sum);
                 stateTax = sum * 0.06;
                 System.out.println("Tax: " + stateTax);
                 Double total = sum + stateTax;
                 System.out.println("Total: " + total);
+
+
+                //Prints information to a txt file
                 System.out.println("Would you like to save this information to a txt file? yes/no");
                 answer = inputGroc.next();
                 if (answer.equals("yes")) {
-                    System.out.println("Meow");
                     String fileName = "groceryTaxCalculate.txt";
                     PrintWriter outFile = new PrintWriter(new FileWriter(fileName, true));
+                    outFile.println("\n ");
                     for (int j = 0; j < groceryList.size(); ++j) {
-                        Double value = groceryList.get(j);
-                        outFile.println("Item: " + value);
-                        outFile.close();
+                        outFile.println("Grocery Item Price: " + groceryList.get(j));
                     }
-                }
+                    outFile.println("\n Subtotal: " + sum);
+                    outFile.println("Kentucky State Tax: " + stateTax);
+                    outFile.println("=====================");
+                    outFile.println("Your total is: " + total);
+                    outFile.close();
 
+
+                    //Enter more items?
+                    System.out.println("Would you like to enter more items?");
+                    String response = inputGroc.next().toLowerCase();
+                    if (response.equals("yes")) {
+                        new GroceryTaxCalculator();
+                    } else if (response.equals("no")){
+                        new Menu();
+                    }else {
+                        System.out.println("Please enter either yes or no.");
+                    }
+
+                }
             }
         }
     }

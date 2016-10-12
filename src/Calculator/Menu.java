@@ -1,8 +1,6 @@
 package Calculator;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Scanner;
 
 /**
@@ -10,43 +8,43 @@ import java.util.Scanner;
  */
 public class Menu extends Main {
     public Menu() throws IOException {
-        System.out.println("\n\nHow can I help you? \n \n" +
-                "Basic Math Calculator \n" +
-                "Tip Calculator \n" +
-                "Grocery Tax Calculator \n" +
-                "Past Calculations Menu\n" +
-                "Help\n" +
-                "Quit");
+        System.out.println("\nHow can I help you? \n \n" +
+                "1) Basic Math Calculator \n" +
+                "2) Tip Calculator \n" +
+                "3) Grocery Tax Calculator \n" +
+                "4) Past Calculations Menu\n" +
+                "5) Help\n" +
+                "6) Quit");
 
 
         Scanner userAnswer = new Scanner(System.in);
-        String userInput = userAnswer.nextLine().toLowerCase();
+        int userInput = userAnswer.nextInt();
 
 
 
             switch (userInput) {
 
-                case "calculator":
+                case 1:
                     new Calculator();
                     break;
 
-                case "tip calculator":
+                case 2:
                     new TipCalculator();
                     break;
 
-                case "grocery tax":
+                case 3:
                     new GroceryTaxCalculator();
                     break;
 
-//       case "past calculations":
-//           new PastCalculations();
-//           break;
+                case 4:
+                    new PastCalculations();
+                    break;
 
-                case "help":
+                case 5:
                     new Help();
                     break;
 
-                case "quit":
+                case 6:
                     System.out.println("\n Thank you for using my calculator!");
                     System.exit(0);
                     return;

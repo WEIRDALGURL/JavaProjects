@@ -25,11 +25,20 @@ public class TipCalculator extends Main{
         double total = Math.round((gratuityAmount + subTotal) * 100.0) / 100.0;
         System.out.println("\tTotal: $" + total);
         String fileName = "tipCalculate.txt";
-        PrintWriter outFile = new PrintWriter(new FileWriter(fileName));
+        PrintWriter outFile = new PrintWriter(new FileWriter(fileName, true));
         outFile.println("Check Amount: " + subTotal);
         outFile.println("Gratuity Amount: "+ gratuityAmount);
-        outFile.println("Total " + total);
+        outFile.println("==================\n");
+        outFile.println("Total " + total + "\n\n");
         outFile.close();
+        System.out.println("Would you like to calculate another tip?");
+        String response = tipCal.next();
+        if (response.equals("no")){
+            new Menu();
+        }else {
+            new TipCalculator();
+        }
+
 
 
         return;
