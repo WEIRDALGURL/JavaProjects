@@ -8,7 +8,7 @@ import java.io.IOException;
 public class Help extends Main {
 
     public Help() throws IOException {
-        System.out.println("Allow to assist you!");
+        System.out.println("Allow me to assist you!");
         System.out.println("\t\t===============\n\n");
         System.out.println("Calculator\n\n" +
                 "\t\tEnter a mathematical expression in order to either add '+', subtract '-', multiply  '*', or divide '/'two numbers.\n\n" +
